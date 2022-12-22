@@ -31,34 +31,24 @@ int main() {
 		float p = beta_sample_BA(a, b);
 
 		if (p > 0.9) {
-			//printf("Hit #10\n");
 			counts[9]++;
 		} else if (p > 0.8) {
-			//printf("Hit #9\n");
 			counts[8]++;
 		} else if (p > 0.7) {
-			//printf("Hit #8\n");
 			counts[7]++;
 		} else if (p > 0.6) {
-			//printf("Hit #7\n");
 			counts[6]++;
 		} else if (p > 0.5) {
-			//printf("Hit #6\n");
 			counts[5]++;
 		} else if (p > 0.4) {
-			//printf("Hit #5\n");
 			counts[4]++;
 		} else if (p > 0.3) {
-			//printf("Hit #4\n");
 			counts[3]++;
 		} else if (p > 0.2) {
-			//printf("Hit #3\n");
 			counts[2]++;
 		} else if (p > 0.1) {
-			//printf("Hit #2\n");
 			counts[1]++;
 		} else {
-			//printf("Hit #1\n");
 			counts[0]++;
 		}
 	}
