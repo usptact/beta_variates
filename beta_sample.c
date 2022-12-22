@@ -1,5 +1,5 @@
 /*
- * [1] R. C. H. Cheng, "Generating Beta Variates with Nonintegral Shape Paramters",
+ * [1] R. C. H. Cheng, "Generating Beta Variates with Nonintegral Shape Parameters",
  * Univ. of Wales Institute of Science and Technology, Management Science/Operations Research, 1978
  *
  * BA Algorithm Implementation
@@ -8,12 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <math.h>
 
-float randfrac();
-float min(float a, float b);
-float max(float a, float b);
-float beta_sample_BA(float a, float b);
+#include "libbeta.h"
 
 int main() {
 	srand(time(NULL));
@@ -29,6 +25,11 @@ int main() {
 
 	for (int i = 0; i < 10000; ++i) {
 		float p = beta_sample_BA(a, b);
+
+        if (p < 0) {
+            printf("Error: parameters a and b should be larger than 0!\n");
+            return -1;
+        }
 
 		if (p > 0.9) {
 			counts[9]++;
@@ -61,43 +62,4 @@ int main() {
 	return 0;
 }
 
-float randfrac() {
-	return (rand() % RAND_MAX) / (float) RAND_MAX;
-}
-
-float min(float a, float b) {
-	return (a > b) ? b : a;
-}
-
-float max(float a, float b) {
-	return (a > b) ? a : b;
-}
-
-float beta_sample_BA(float a, float b) {
-	float alpha = a + b;
-	float beta = 0.0f;
-	float u1 = 0.0f, u2 = 0.0f, w = 0.0f, v = 0.0f;
-
-	if (min(a, b) <= 1.0) {
-		beta = max(1.0 / a, 1.0 / b);
-	} else {
-		beta = sqrtf((alpha - 2.0f) / (2 * a * b - alpha));
-	}
-
-	float gamma = a + 1.0f / beta;
-
-	while (1) {
-		u1 = randfrac();
-		u2 = randfrac();
-		v = beta * logf(u1 / (1 - u1));
-		w = a * expf(v);
-		float tmp = logf(alpha / (b + w));
-		if (alpha * tmp + (gamma * v) - 1.3862944 >= logf(u1 * u1 * u2)) {
-			break;
-		}
-	}
-
-	float x = w / (b + w);
-	return x;
-}
 
