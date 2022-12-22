@@ -13,7 +13,7 @@ $ make
 
 Run the BA algorithm demo
 ```
-$ ./beta_sample
+$ ./beta_sample 1.0 2.0
 ```
 
 You should see counts for each of the 10 bins.
