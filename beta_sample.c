@@ -19,8 +19,8 @@ int main() {
 	srand(time(NULL));
 
 	// set these
-	float a = 2.0;
-	float b = 5.0;
+	float a = 2.0f;
+	float b = 5.0f;
 
 	int counts[10];
 	for (int i = 0; i < 10; ++i) {
@@ -28,7 +28,7 @@ int main() {
 	}
 
 	for (int i = 0; i < 10000; ++i) {
-		float p = next_sample(a, b);
+		float p = beta_sample_BA(a, b);
 
 		if (p > 0.9) {
 			//printf("Hit #10\n");
@@ -85,24 +85,24 @@ float max(float a, float b) {
 
 float beta_sample_BA(float a, float b) {
 	float alpha = a + b;
-	float beta = 0.0;
-	float u1 = 0.0, u2 = 0.0, w = 0.0, v = 0.0;
+	float beta = 0.0f;
+	float u1 = 0.0f, u2 = 0.0f, w = 0.0f, v = 0.0f;
 
 	if (min(a, b) <= 1.0) {
 		beta = max(1.0 / a, 1.0 / b);
 	} else {
-		beta = sqrt((alpha - 2.0) / (2 * a * b - alpha));
+		beta = sqrtf((alpha - 2.0f) / (2 * a * b - alpha));
 	}
 
-	float gamma = a + 1.0 / beta;
+	float gamma = a + 1.0f / beta;
 
 	while (1) {
 		u1 = randfrac();
 		u2 = randfrac();
-		v = beta * log(u1 / (1 - u1));
-		w = a * exp(v);
-		float tmp = log(alpha / (b + w));
-		if (alpha * tmp + (gamma * v) - 1.3862944 >= log(u1 * u1 * u2)) {
+		v = beta * logf(u1 / (1 - u1));
+		w = a * expf(v);
+		float tmp = logf(alpha / (b + w));
+		if (alpha * tmp + (gamma * v) - 1.3862944 >= logf(u1 * u1 * u2)) {
 			break;
 		}
 	}
