@@ -13,7 +13,7 @@ float max(float a, float b);
  * Simple algorithm BA from [1]
  */
 float beta_sample_BA(float a, float b) {
-    if (a < 0.0f || b < 0.0f ) {
+    if (a <= 0.0f || b <= 0.0f ) {
         return -1;
     }
 

@@ -11,12 +11,16 @@
 
 #include "libbeta.h"
 
-int main() {
-	srand(time(NULL));
+int main(int argc, char* argv[]) {
+    if (argc < 3) {
+        printf("Usage: beta_sample 1.0 2.0\n");
+        return -1;
+    }
 
-	// set these
-	float a = 2.0f;
-	float b = 5.0f;
+    float a = atof(argv[1]);
+    float b = atof(argv[2]);
+
+	srand(time(NULL));
 
 	int counts[10];
 	for (int i = 0; i < 10; ++i) {
