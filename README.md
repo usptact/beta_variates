@@ -1,4 +1,4 @@
-# beta_variates
+# libbeta
 Sample from the Beta distribution
 
 ## Quickstart
