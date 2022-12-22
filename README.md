@@ -5,7 +5,10 @@ Sample from the Beta distribution
 
 Build the BA algorithm demo
 ```
-$ gcc -o beta_sample beta_sample.c -lm
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
 ```
 
 Run the BA algorithm demo

@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.6.0)
+cmake_minimum_required(VERSION 2.8.12)
 
-project(beta_sample C)
+project(libbeta C)
 
 add_executable(beta_sample beta_sample.c libbeta.h)
