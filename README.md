@@ -3,7 +3,7 @@ Sample from the Beta distribution
 
 ## Quickstart
 
-Build sample programs
+Build two sample programs:
 * build a histogram of sample counts (10 bins)
 * stream of samples
 
@@ -14,7 +14,7 @@ $ cmake ..
 $ make
 ```
 
-Run the BA algorithm demo
+Run the sample programs:
 ```
 $ ./sample_hist 1.0 2.0
 1821 1679 1602 1274 1117 890 756 475 278 108 
@@ -27,7 +27,7 @@ $ ./sample_stream 1.0 2.0
 <Ctrl-C>
 ```
 
-## Advanced Usage
+## Usage
 
 1. Include the header `libbeta.h` into your program
 
@@ -36,7 +36,7 @@ $ ./sample_stream 1.0 2.0
 3. Call `beta_sample_BA(a, b)` to get a sample
 
 ## Credits
-Ported Python code from [James McCaffrey's Blog](https://jamesmccaffrey.wordpress.com/2019/03/29/sampling-from-the-beta-distribution-using-python/beta_sampling_python/)
+Inspired by [James McCaffrey's Blog](https://jamesmccaffrey.wordpress.com/2019/03/29/sampling-from-the-beta-distribution-using-python/beta_sampling_python/)
 
 ## References
 [[1]](https://dl.acm.org/doi/pdf/10.1145/359460.359482) R. C. H. Cheng, Generating Beta Variates with Nonintegral Shape Parameters, Communications of the ACM, Vol. 21, Issue 4, pp. 317-322, 1978.
