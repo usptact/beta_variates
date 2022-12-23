@@ -2,7 +2,7 @@
  * [1] R. C. H. Cheng, "Generating Beta Variates with Nonintegral Shape Parameters",
  * Univ. of Wales Institute of Science and Technology, Management Science/Operations Research, 1978
  *
- * BA Algorithm Implementation
+ * BA Algorithm Implementation: Build a histogram of counts in [0,1)
  */
 
 #include <stdio.h>
@@ -13,7 +13,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        printf("Usage: beta_sample 1.0 2.0\n");
+        printf("Usage: sample_hist 1.0 2.0\n");
         return -1;
     }
 

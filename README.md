@@ -3,7 +3,10 @@ Sample from the Beta distribution
 
 ## Quickstart
 
-Build the BA algorithm demo
+Build sample programs
+* build a histogram of sample counts (10 bins)
+* stream of samples
+
 ```
 $ mkdir build
 $ cd build
@@ -13,20 +16,24 @@ $ make
 
 Run the BA algorithm demo
 ```
-$ ./beta_sample 1.0 2.0
-```
+$ ./sample_hist 1.0 2.0
+1821 1679 1602 1274 1117 890 756 475 278 108 
 
-You should see counts for each of the 10 bins.
+$ ./sample_stream 1.0 2.0
+0.130430
+0.622695
+0.473631
+...
+<Ctrl-C>
+```
 
 ## Advanced Usage
 
-The current example uses the BA algorithm from [1].
+1. Include the header `libbeta.h` into your program
 
-Set parameters `a` and `b`.
+2. Set parameters `a` and `b` for the Beta distribution to sample from
 
-Define the number of bins, default is 10.
-
-Optionally, normalize counts by the total number of samples and plot.
+3. Call `beta_sample_BA(a, b)` to get a sample
 
 ## Credits
 Ported Python code from [James McCaffrey's Blog](https://jamesmccaffrey.wordpress.com/2019/03/29/sampling-from-the-beta-distribution-using-python/beta_sampling_python/)
